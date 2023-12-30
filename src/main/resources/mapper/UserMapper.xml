@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.situ.springboot.mapper.UserMapper">
+    <update id="update" parameterType="com.situ.springboot.pojo.User">
+        UPDATE user SET name=#{name},password=#{password},role=#{role},nick_name=#{nickName},email=#{email},phone=#{phone},image=#{image},status=#{status}
+        WHERE id = #{id}
+    </update>
+    <!--List<User> selectAll();-->
+    <select id="selectAll" resultType="com.situ.springboot.pojo.User">
+        SELECT id,`name`,`password`,role,nick_name,email,phone,image,`status`,deleted,gmt_create,gmt_modified
+        FROM `user`
+    </select>
+
+    <!-- void deleteById(Integer id); -->
+    <delete id="deleteById" parameterType="Integer">
+        DELETE FROM user WHERE id = #{id}
+    </delete>
+
+    <!--    void add(User user);-->
+    <insert id="add" parameterType="com.situ.springboot.pojo.User">
+        INSERT INTO user(`name`,`password`,role,nick_name,email,phone,image)
+        VALUES (#{name},#{password},#{role},#{nickName},#{email},#{phone},#{image})
+    </insert>
+    <!--    User selectById(Integer id);-->
+    <select id = "selectById" resultType="com.situ.springboot.pojo.User">
+        SELECT id,`name`,`password`,role,nick_name,email,phone,image,`status`,deleted,gmt_create,gmt_modified
+        FROM `user`
+        WHERE id = #{id}
+    </select>
+    <select id="login" resultType="com.situ.springboot.pojo.User">
+        SELECT id,`name`,`password`,role,nick_name,email,phone,image,`status`,deleted,gmt_create,gmt_modified
+        FROM `user`
+        WHERE name = #{name} AND password = #{password}
+    </select>
+    <!--List<User> selectByPage(int offset, Integer pageSize);-->
+    <select id="selectByPage" resultType="com.situ.springboot.pojo.User">
+        SELECT id,`name`,`password`,role,nick_name,email,phone,image,`status`,deleted,gmt_create,gmt_modified
+        FROM `user`
+        LIMIT #{offset},#{pageSize}
+    </select>
+    <!--int selectTotalCount();-->
+    <select id="selectTotalCount" resultType="Integer">
+        SELECT count(*) FROM user
+    </select>
+</mapper>

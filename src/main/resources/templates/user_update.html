@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:replace="header::common"></div>
+    <style>
+        .center{
+            width: 1000px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <form class="center" action="/user/update" method="post">
+        <input type="hidden" name="id" th:value="${user.id}">
+        <div class="form-group">
+            <label>用户名</label>
+            <input type="text" class="form-control" name="name" th:value="${user.name}">
+        </div>
+        <div class="form-group">
+            <label>密码</label>
+            <input type="text" class="form-control" name="password" th:value="${user.password}">
+        </div>
+        <div class="form-group">
+            <label>角色</label>
+            <input type="radio" name="role" value="1" th:checked="|${user.role==1}|"/>超级管理员
+            <input type="radio" name="role" value="2" th:checked="|${user.role==2}|"/>普通管理员
+        </div>
+        <div class="form-group">
+            <label>状态</label>
+            <input type="radio" name="status" value="1" th:checked="|${user.status==1}|"/>正常
+            <input type="radio" name="status" value="0" th:checked="|${user.status==0}|"/>禁用
+        </div>
+        <div class="form-group">
+            <label>昵称</label>
+            <input type="text" class="form-control" name="nickname" th:value="${user.nickName}">
+        </div>
+        <div class="form-group">
+            <label>邮箱</label>
+            <input type="text" class="form-control" name="email" th:value="${user.email}">
+        </div>
+        <div class="form-group">
+            <label>电话</label>
+            <input type="text" class="form-control" name="phone" th:value="${user.phone}">
+        </div>
+        <div class="form-group">
+            <label>头像</label>
+            <div class="layui-input-block">
+                <div class="layui-upload">
+                    <div class="layui-upload-list">
+                        <img th:src="|/pic/${user.image}|" width="100px" height="100px" class="layui-upload-img" id="demo1">
+                        <input th:value="|${user.image}|" type="hidden" name="image" id="imageId">
+                        <p id="demoText"></p>
+                    </div>
+                    <button type="button" class="layui-btn" id="test1">上传图片</button>
+                </div>
+            </div>
+        </div>
+        <input class="btn btn-primary" type="submit" value="修改">
+<!--        用户名：<input type="text" name="name"/><br/>-->
+<!--        密码：<input type="text" name="password"/><br/>-->
+<!--        角色：<input type="text" name="role"/><br/>-->
+<!--        昵称：<input type="text" name="nickname"/><br/>-->
+<!--        邮箱：<input type="text" name="email"/><br/>-->
+<!--        电话：<input type="text" name="phone"/><br/>-->
+<!--        头像：<input type="text" name="image"/><br/>-->
+<!--        <input type="submit" value="添加">-->
+
+    </form>
+
+    <script>
+        layui.use(['upload'], function() {
+            var upload = layui.upload;
+
+            //常规使用 - 普通图片上传
+            var uploadInst = upload.render({
+                elem: '#test1'
+                ,url: '/upload/uploadImage' //此处用的是第三方的 http 请求演示，实际使用时改成您自己的上传接口即可。
+                ,before: function(obj){
+                    //预读本地文件示例，不支持ie8
+                    obj.preview(function(index, file, result){
+                        $('#demo1').attr('src', result); //图片链接（base64）
+                    });
+                }
+                ,done: function(result){
+                    if (result.ok) {
+                        $('#imageId').val(result.data);
+                        $('#demoText').html(''); //置空上传失败的状态
+                    } else {
+                        mylayer.errorMsg(result.msg);
+                    }
+                }
+                ,error: function(){
+                    //演示失败状态，并实现重传
+                    var demoText = $('#demoText');
+                    demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-xs demo-reload">重试</a>');
+                    demoText.find('.demo-reload').on('click', function(){
+                        uploadInst.upload();
+                    });
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
