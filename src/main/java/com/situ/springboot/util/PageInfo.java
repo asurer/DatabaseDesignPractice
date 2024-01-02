@@ -1,6 +1,6 @@
 package com.situ.springboot.util;
 
-import com.situ.springboot.pojo.User;
+import com.situ.springboot.pojo.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

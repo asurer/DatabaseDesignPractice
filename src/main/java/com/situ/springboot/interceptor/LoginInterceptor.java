@@ -1,6 +1,6 @@
 package com.situ.springboot.interceptor;
 
-import com.situ.springboot.pojo.User;
+import com.situ.springboot.pojo.entity.User;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;

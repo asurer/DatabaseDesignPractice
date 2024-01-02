@@ -1,4 +1,4 @@
-package com.situ.springboot.pojo;
+package com.situ.springboot.pojo.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,6 +1,5 @@
 package com.situ.springboot.controller;
-import com.situ.springboot.mapper.UserMapper;
-import com.situ.springboot.pojo.User;
+import com.situ.springboot.pojo.entity.User;
 import com.situ.springboot.service.IUserService;
 import com.situ.springboot.util.PageInfo;
 import com.situ.springboot.util.Result;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.ArrayList;
 
 @Controller
 @RequestMapping("/user")

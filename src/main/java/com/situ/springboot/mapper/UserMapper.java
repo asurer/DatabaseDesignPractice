@@ -1,6 +1,6 @@
 package com.situ.springboot.mapper;
 
-import com.situ.springboot.pojo.User;
+import com.situ.springboot.pojo.entity.User;
 
 import java.util.List;
 //IUserDao

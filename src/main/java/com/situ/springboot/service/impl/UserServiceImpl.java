@@ -1,7 +1,7 @@
 package com.situ.springboot.service.impl;
 
 import com.situ.springboot.mapper.UserMapper;
-import com.situ.springboot.pojo.User;
+import com.situ.springboot.pojo.entity.User;
 import com.situ.springboot.service.IUserService;
 import com.situ.springboot.util.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
