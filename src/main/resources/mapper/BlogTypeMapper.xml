@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.situ.springboot.mapper.BlogTypeMapper">
+<!--    List<BlogTypeCountVO> selectBlogTypeCount();-->
+    <select id="selectBlogTypeCount" resultType="com.situ.springboot.pojo.vo.BlogTypeCountVO">
+        SELECT bt.name, COUNT(*) AS `value`
+        FROM blog AS b INNER JOIN blog_type AS bt
+        ON b.type_id = bt.id
+        GROUP BY bt.id;
+    </select>
+</mapper>

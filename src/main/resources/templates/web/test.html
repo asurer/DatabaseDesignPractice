@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--标题-->
+    <h1>一级标题</h1>
+    <h2>二级标题</h2>
+    <h3>三级标题</h3>
+    <h4>四级标题</h4>
+    <h5>五级标题</h5>
+    <h6>六级标题</h6>
+    <!-- p=paragraph 段落-->
+    <p>段落</p>
+    <!--图片-->
+    <img src="../static/img/img.png" width="200px" height="200px">
+    <!-- 超链接 -->
+    <a href="http://www.baidu.com">跳转页面</a>
+    <!--有序列表-->
+    <ol>
+        <li>北京</li>
+        <li>上海</li>
+        <li>深圳</li>
+        <li>广州</li>
+    </ol>
+    <!-- 无序列表 -->
+    <ul>
+        <li>北京</li>
+        <li>上海</li>
+        <li>深圳</li>
+        <li>广州</li>
+    </ul>
+    <!-- 无序列表和有序列表可以嵌套 -->
+    <ul>
+        <li>北京</li>
+        <li>上海</li>
+        <li>深圳</li>
+        <li>广州</li>
+        <li>
+            山东
+            <ol>
+                <li>青岛</li>
+                <li>济南</li>
+                <li>烟台</li>
+            </ol>
+        </li>
+    </ul>
+    <button>按钮</button>
+    <form action="http://" method="post">
+        <table border="1" cellspacing="0">
+            <tr>
+                <td>用户名</td>
+                <td><input type="text"/></td>
+            </tr>
+            <tr>
+                <td>密码</td>
+                <td><input type="password"/></td>
+            </tr>
+            <tr>
+                <td>性别</td>
+                <td>
+                    <input type="radio" name="gender"/>男
+                    <input type="radio" name="gender"/>女
+                </td>
+            </tr>
+            <tr>
+                <td>兴趣</td>
+                <td>
+                    <input type="checkbox"/>音乐<br/>
+                    <input type="checkbox"/>看书<br/>
+                    <input type="checkbox"/>爬山<br/>
+                </td>
+            </tr>
+            <tr>
+                <td>城市</td>
+                <td>
+                    <select>
+                        <option>济南</option>
+                        <option>青岛</option>
+                        <option>德州</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>自我介绍</td>
+                <td>
+                    <textarea rows="5" cols="20">今天是个好天气</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="注册">
+                </td>
+                <td>
+                    <input type="reset" value="重置">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
