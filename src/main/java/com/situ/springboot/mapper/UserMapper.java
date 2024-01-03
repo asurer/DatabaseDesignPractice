@@ -19,4 +19,6 @@ public interface UserMapper {
     List<User> selectByPage(int offset, Integer pageSize);
 
     int selectTotalCount();
+
+    void deleteAll(Integer[] ids);
 }

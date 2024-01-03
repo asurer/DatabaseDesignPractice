@@ -18,6 +18,17 @@
     <delete id="deleteById" parameterType="Integer">
         DELETE FROM user WHERE id = #{id}
     </delete>
+    <!--void deleteAll(Integer[] ids);
+       DELETE FROM user WHERE
+       id IN (12,23,4,5)
+   -->
+    <delete id="deleteAll">
+        DELETE FROM user WHERE
+        id IN
+        <foreach collection="array" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </delete>
 
     <!--    void add(User user);-->
     <insert id="add" parameterType="com.situ.springboot.pojo.entity.User">

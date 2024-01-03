@@ -58,6 +58,11 @@ public class UserServiceImpl implements IUserService {
         int totalPage = (int)Math.ceil((double)totalCount / pageSize);
         return new PageInfo(list, totalPage, pageNo, pageSize);
     }
+
+    @Override
+    public void deleteAll(Integer[] ids) {
+        userMapper.deleteAll(ids);
+    }
 }
 
 

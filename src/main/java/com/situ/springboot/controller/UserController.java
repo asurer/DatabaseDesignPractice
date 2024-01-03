@@ -73,7 +73,7 @@ public class UserController {
     @RequestMapping("/update")
     public String update(User user) {
         userService.update(user);
-        return "redirect:/user/selectAll";
+        return "redirect:/user/selectByPage";
     }
     @RequestMapping("/toAdd")
     public String toAdd() {
@@ -83,14 +83,19 @@ public class UserController {
     @RequestMapping("/add")
     public String add(User user) {
         userService.add(user);
-        return "redirect:/user/selectAll";
+        return "redirect:/user/selectByPage";
     }
 
     @RequestMapping("/deleteById")
     public String deleteById(Integer id) {
         userService.deleteById(id);
         //删除完，显示最新数据
-        return "redirect:/user/selectAll";
+        return "redirect:/user/selectByPage";
+    }
+    @RequestMapping("/deleteAll")
+    public String deleteAll(Integer[] ids) {
+        userService.deleteAll(ids);
+        return "redirect:/user/selectByPage";
     }
 
     // http://localhost:8080/user/selectAll
@@ -109,7 +114,7 @@ public class UserController {
         //soutm
         System.out.println("UserController.selectByPage");
         PageInfo pageInfo = userService.selectByPage(pageNo, pageSize);
-        //把list数据放到内存里
+        //把pageInfo数据放到内存里
         model.addAttribute("pageInfo", pageInfo);
         //转发到user_list界面展示
         return "user_list";
