@@ -6,10 +6,10 @@
 前端<br>
 &emsp;|----JS框架：JQuery<br>
 &emsp;|----CSS框架：layUI + bootstrap<br>
-&emsp;|----chart框架：Echarts<br>
+&emsp;|----chart框架：ECharts<br>
 后端<br>
 &emsp;|----核心框架：SpringBoot 2.7.2<br>
-&emsp;|----项目构建：JDK17, Maven3.9.5<br>
+&emsp;|----项目构建：JDK 17, Maven 3.9.5<br>
 &emsp;|----持久层框架：Mybatis<br>
 &emsp;|----模板框架：Thymeleaf<br>
 &emsp;|----服务器：Tomcat 9.0.65<br>
